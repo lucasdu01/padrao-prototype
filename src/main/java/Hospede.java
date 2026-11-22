@@ -1,4 +1,63 @@
-package PACKAGE_NAME;
+public class Hospede implements Cloneable {
+    private int codigo;
+    private String nome;
+    private Endereco endereco;
+    private String email;
 
-public class Hospede {
+    public Hospede(int codigo, String nome, Endereco endereco, String email) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.email = email;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public Hospede clone() throws CloneNotSupportedException {
+        Hospede hospedeClone = (Hospede) super.clone();
+        hospedeClone.endereco = (Endereco) hospedeClone.endereco.clone();
+        return hospedeClone;
+    }
+
+    @Override
+    public String toString() {
+        return "Hospede{" +
+                "Codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", endereco=" + endereco +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
 }
